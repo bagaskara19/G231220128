@@ -1,0 +1,20 @@
+<?php
+// Variabel berisi JSON
+$jsonString = '{"nama":"Sari","umur":30,"pekerjaan":"Designer"}';
+
+// Decode ke PHP Object
+$obj = json_decode($jsonString);
+
+// Akses nilai dari Object
+echo "Nama (Object): " . $obj->nama . "<br>";
+echo "Umur (Object): " . $obj->umur . "<br>";
+echo "Pekerjaan (Object): " . $obj->pekerjaan . "<br>";
+
+// Decode ke PHP Array (parameter kedua = true)
+$array = json_decode($jsonString, true);
+
+// Akses nilai dari Array
+echo "Nama (Array): " . $array['nama'] . "<br>";
+echo "Umur (Array): " . $array['umur'] . "<br>";
+echo "Pekerjaan (Array): " . $array['pekerjaan'] . "<br>";
+?>
