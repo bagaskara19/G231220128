@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menampilkan Data JSON dalam Tabel</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Data Landmark dan Tarif</h2>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>KOTA</th>
+                <th>LANDMARK</th>
+                <th>TARIF</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
+    <script>
+        // Data JSON yang kamu berikan
+        const jsonData = [
+            {
+                "KOTA": "SEMARANG",
+                "LANDMARK": "LAWANG SEWU",
+                "TARIF": 20000
+            },
+            {
+                "KOTA": "YOGYAKARTA",
+                "LANDMARK": "PRAMBANAN",
+                "TARIF": 35000
+            },
+            {
+                "KOTA": "MAGELANG",
+                "LANDMARK": "BOROBUDUR",
+                "TARIF": 45000
+            },
+            {
+                "KOTA": "SURAKARTA",
+                "LANDMARK": "PGS",
+                "TARIF": "GRATIS"
+            }
+        ];
+
+        // Dapatkan referensi ke elemen tbody tabel
+        const tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
+
+        // Loop melalui data JSON dan buat baris tabel untuk setiap objek
+        jsonData.forEach(item => {
+            const row = tableBody.insertRow();
+
+            // Buat sel untuk setiap properti (KOTA, LANDMARK, TARIF)
+            const kotaCell = row.insertCell();
+            const landmarkCell = row.insertCell();
+            const tarifCell = row.insertCell();
+
+            // Isi sel dengan nilai dari objek JSON
+            kotaCell.textContent = item.KOTA;
+            landmarkCell.textContent = item.LANDMARK;
+            tarifCell.textContent = item.TARIF;
+        });
+    </script>
+
+</body>
+</html>
